@@ -1,0 +1,19 @@
+{
+  "name": "worker_manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jojapimpa/worker_manager.git"
+  },
+  "author": "Jojapimpa <galaktineee@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jojapimpa/worker_manager/issues"
+  },
+  "homepage": "https://github.com/Jojapimpa/worker_manager#readme"
+}
