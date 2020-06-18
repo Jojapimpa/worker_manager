@@ -1,15 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 
 Vue.use(Router)
 
-export default new Router({
+const router = new Router({
   routes: [
     {
-      path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
-    }
+      path: '/login',
+      name: 'auth',
+      component: auth,
+      meta: {
+        requiredNoAuth: true
+      }
+    },
+
   ]
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requiredAuth && !Auth.default.checkAuthentication()) {
+    return router.push('/login')
+  }
+
+  if (to.path === '/') {
+    return router.push('/login')
+  }
+
+  next()
+})
+
+
+export default router

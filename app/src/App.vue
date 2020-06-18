@@ -1,23 +1,21 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+  <v-app id="app">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+    <v-container>
+      <router-view/>
+    </v-container>
+  </v-app>
 </template>
-
 <script>
-export default {
-  name: 'App'
-}
+  export default {
+    name: 'app'
+  }
 </script>
+<style lang="scss">
+  @import "./assets/styles";
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  body {
+    background: #eee;
+  }
 </style>
