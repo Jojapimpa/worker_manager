@@ -6,7 +6,7 @@ module.exports = (app) => {
     const api = app.potato_api.app.api.secretary;
 
     app.route('/api/v1/secretary')
-        .get((req, res) => res.send(`Worker Manager API (._.)`));
+        .get((req, res) => res.send(`PotatoAPI (*~*)`));
 
     app.route('/api/v1/secretary/list')
         .get(
@@ -14,9 +14,15 @@ module.exports = (app) => {
             api.list(models.User, app.get(config.secret))
         );
 
-    app.route('/api/v1/secretary/add')
-        .post(
-            passport.authenticate('jwt', config.session),
-            api.add(models.User, app.get(config.secret))
-        );
+    [
+        'add',
+        'update',
+        'remove'
+    ].forEach(method => {
+        app.route(`/api/v1/secretary/${method}`)
+            .post(
+                passport.authenticate('jwt', config.session),
+                api[method](models.User, app.get(config.secret))
+            );
+    });
 };

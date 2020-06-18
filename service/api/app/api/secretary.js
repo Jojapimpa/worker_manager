@@ -63,4 +63,43 @@ api.add = (User, token) => (req, res) => {
     })
 };
 
+api.update = (User, token) => async (req, res) => {
+    if (!token)
+        return res.status(403).send({success: false, message: 'Unauthorized'});
+
+
+    let fields = [];
+
+    Object.keys(User.schema.paths).forEach((key) => {
+        if (key.match(/^_/))
+            return;
+        fields.push(key);
+    });
+
+    const worker = await User.findOne({_id: req.body['_id']});
+
+    fields.forEach(key => {
+        if (req.body[key])
+            worker[key] = req.body[key]
+    });
+
+    worker.save(error => {
+        if (error) {
+            throw error;
+        }
+        res.json({success: true});
+    })
+};
+
+api.remove = (User, token) => async (req, res) => {
+    if (!token)
+        return res.status(403).send({success: false, message: 'Unauthorized'});
+
+    const worker = await User.findOne({_id: req.body['_id']});
+
+    worker.remove(error => {
+        res.json({success: true});
+    });
+};
+
 module.exports = api;
