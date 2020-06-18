@@ -18,9 +18,9 @@
   "homepage": "https://github.com/Jojapimpa/worker_manager#readme",
   "_moduleAliases": {
     "@root": ".",
-    "@Manager": "./api",
-    "@API": "./api/config/app.js",
-    "@config": "./api/config/index.js"
+    "@Manager": "./service/api",
+    "@API": "./service/api/config/app.js",
+    "@config": "./service/api/config/index.js"
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
