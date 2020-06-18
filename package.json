@@ -15,5 +15,25 @@
   "bugs": {
     "url": "https://github.com/Jojapimpa/worker_manager/issues"
   },
-  "homepage": "https://github.com/Jojapimpa/worker_manager#readme"
+  "homepage": "https://github.com/Jojapimpa/worker_manager#readme",
+  "_moduleAliases": {
+    "@root": ".",
+    "@Manager": "./api",
+    "@API": "./api/config/app.js",
+    "@config": "./api/config/index.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
+    "mongoose": "^5.9.19",
+    "morgan": "^1.10.0",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0"
+  }
 }
