@@ -8,6 +8,6 @@ const LOCAL = '0.0.0.0';
 Server.listen(
     Port,
     LOCAL,
-    () => console.log(`PotatoAPI running on ${Port}`)
+    () => console.log(`API running on ${Port}`)
 );
 
