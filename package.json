@@ -6,7 +6,7 @@
   "scripts": {
     "backend": "node service",
     "frontend": "cd app; node index.js",
-    "install": "npm i; cd app; npm i"
+    "install": "cd app; npm i"
   },
   "repository": {
     "type": "git",
