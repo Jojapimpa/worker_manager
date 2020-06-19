@@ -6,13 +6,13 @@ module.exports = (mongoose, config) => {
         promiseLibrary: global.Promise
     });
 
-    database.on('error', error => console.log(`Connection to Potato database failed: ${error}`));
-    database.on('connected', () => console.log('Connected to Potato database'));
-    database.on('disconnected', () => console.log('Disconnected from Potato database'));
+    database.on('error', error => console.log(`Connection to database failed: ${error}`));
+    database.on('connected', () => console.log('Connected to database'));
+    database.on('disconnected', () => console.log('Disconnected from database'));
 
     process.on('SIGINT', () => {
         database.close(() => {
-            console.log('Potato terminated, connection closed');
+            console.log('database terminated, connection closed');
             process.exit(0);
         })
     });

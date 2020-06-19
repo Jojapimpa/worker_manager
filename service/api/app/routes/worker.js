@@ -1,9 +1,9 @@
 const passport = require('passport');
-const models = require('@Potato/app/setup');
+const models = require('@Manager/app/setup');
 const config = require('@config');
 
 module.exports = (app) => {
-    const api = app.potato_api.app.api.worker;
+    const api = app.api.app.api.worker;
 
     app.route('/api/v1/worker')
         .get((req, res) => res.send(`PotatoAPI (*~*)`));

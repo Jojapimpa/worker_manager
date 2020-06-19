@@ -3,7 +3,7 @@ const models = require('@Manager/app/setup');
 const config = require('@config');
 
 module.exports = (app) => {
-    const api = app.potato_api.app.api.secretary;
+    const api = app.api.app.api.secretary;
 
     app.route('/api/v1/secretary')
         .get((req, res) => res.send(`PotatoAPI (*~*)`));

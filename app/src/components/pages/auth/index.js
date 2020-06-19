@@ -24,8 +24,22 @@ export default {
       })
   },
 
+  signup (context, credentials, redirect) {
+    Axios.post(`${API}/api/v1/signup`, credentials)
+      .then(({data: {token}}) => {
+        context.$cookie.set('token', token, '1D')
+        context.validSignUp = true
+        this.user.authenticated = true
+
+        if (redirect) router.push(redirect)
+      }).catch(({response: {data}}) => {
+        context.snackbar = true
+        context.message = data.message
+      })
+  },
+
   checkAuthentication () {
-    const token = Vue.cookie.get('token')
+    const token = Vue.cookie.get('token') // document.cookie
     this.user.authenticated = !!token
 
     if (this.user.authenticated) {

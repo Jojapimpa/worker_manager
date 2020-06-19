@@ -1,7 +1,7 @@
-const models = require('@Potato/app/setup');
+const models = require('@Manager/app/setup');
 
 module.exports = (app) => {
-    const api = app.potato_api.app.api.auth;
+    const api = app.api.app.api.auth;
 
     app.route('/')
         .get((req, res) => res.send(`Worker Manager API (*~*)`));
